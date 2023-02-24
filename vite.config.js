@@ -42,7 +42,6 @@ export default defineConfig({
   },
   esbuild: {
     treeShaking: true,
-    drop: ['debugger', 'console']
   },
   plugins: [react()],
   server: {
