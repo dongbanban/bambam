@@ -5,11 +5,11 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const useParamsListen = listener => {
+const useLocationListen = listener => {
     let location = useLocation();
     useEffect(() => {
         listener?.(location);
     }, [location, listener]);
 }
 
-export default useParamsListen
+export default useLocationListen
