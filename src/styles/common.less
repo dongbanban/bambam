@@ -1,0 +1,23 @@
+@drawerZindex: 999;
+@leftMenuZindex: @drawerZindex - 1;
+@headerZindex: @drawerZindex - 2;
+
+.text-nowrap {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.text-multiple {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.flex-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
