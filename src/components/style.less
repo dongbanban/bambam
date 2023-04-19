@@ -1,0 +1,133 @@
+.text-nowrap {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.bulk-add {
+    position: relative;
+
+    &-label {
+        margin-bottom: 8px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #74848F;
+    }
+
+    &-view {
+        margin-bottom: 24px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #313538;
+    }
+
+    &-program {
+        color: #004771;
+    }
+
+    &-el {
+        background: #FFFFFF;
+        outline: none;
+        border: 1px solid #CED5DB;
+
+        border-radius: 6px;
+        padding: 10px 12px;
+        height: 168px;
+        overflow: auto;
+        -webkit-user-modify: read-write-plaintext-only !important;
+
+        &:empty:before {
+            font-weight: 400;
+            font-size: 14px;
+            color: #B6C3CC;
+            content: attr(data-placeholder);
+        }
+
+        &:hover {
+            border: 1px solid #004771;
+        }
+
+        &:focus {
+            box-shadow: 0px 0px 0px 2px rgba(0, 71, 113, 0.2);
+        }
+
+        &-error {
+            border: 1px solid #FF4D4F !important;
+            border-radius: 4px;
+            box-shadow: none;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+
+    &-error-info {
+        margin-top: 4px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: #E23A3A;
+    }
+
+    &-valid {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 27px 0 10px;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        background: #EBEFF2;
+        border-radius: 100px;
+        font-weight: 400;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        color: #41484C;
+        line-height: 25px;
+        max-width: 330px;
+
+        label {
+            max-width: 330px;
+            .text-nowrap;
+        }
+
+        i {
+            color: #B6C3CC;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+        }
+    }
+
+    &-inValid {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 27px 0 10px;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        background: #FFF1F0;
+        border: 1px solid #FFCCC7;
+        border-radius: 100px;
+        font-weight: 400;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        color: #41484C;
+        line-height: 25px;
+        max-width: 330px;
+
+        label {
+            max-width: 330px;
+            .text-nowrap;
+        }
+
+        i {
+            color: #FF4D4F;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+        }
+    }
+}
