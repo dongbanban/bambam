@@ -1,5 +1,5 @@
 /*
- * @FilePath: /Users/i104/vite3/src/config/config.menu.jsx
+ * @FilePath: /Users/i104/bambam/src/config/config.menu.jsx
  * @author: dongyang(yang.dong@derbysoft.net)
  */
 import React from 'react'
@@ -61,6 +61,11 @@ const menu = [
         title: 'Dayjs Demo',
         iconEl: <AppstoreOutlined />,
         route: '/dayjsDemo'
+    },
+    {
+        title: 'Components Demo',
+        iconEl: <AppstoreOutlined />,
+        route: '/componentsDemo'
     },
 ];
 

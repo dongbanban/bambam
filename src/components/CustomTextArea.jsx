@@ -18,7 +18,7 @@ import './style.less'
 const isValidEmail = (value) => {
     return !!value && value.length > 0 && value.length <= 128
         && /^([a-zA-Z0-9]+[\_\|\.\-]+)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[\_\|\.\-]+)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/
-            .test(trim(value));
+            .test(value?.trim());
 }
 
 const CustomTextArea = () => {
@@ -33,29 +33,6 @@ const CustomTextArea = () => {
 
     const btnDisabled = useMemo(() => valid.length === 0 || inValid.length > 0, [valid, inValid])
 
-    const handleOpen = useCallback(() => {
-        setOpen(true);
-    }, []);
-
-    const handleClose = useCallback(() => {
-        if (step === 1) {
-            memorized.current = null
-            setOpen(false);
-        } else {
-            setStep(1);
-            setTimeout(() => batchAddTags(addRef.current), 0)
-        }
-    }, [memorized.current, batchAddTags, addRef.current, step]);
-
-    const handleOk = useCallback(() => {
-        if (step === 1) {
-            memorized.current = addRef.current.innerText
-            setStep(2)
-        } else {
-            console.log(valid)
-        }
-    }, [step, addRef.current, memorized.current, valid]);
-
     // 展示光标
     const showInlast = useCallback((textArea) => {
         if (window.getSelection && textArea.innerText.trim() !== '') {
@@ -65,6 +42,21 @@ const CustomTextArea = () => {
             sel.collapseToEnd();//光标移至最后
         }
     }, [])
+
+    // 实时更新并获取合法/非法email
+    const convertToEmails = useCallback(textArea => {
+        const content = memorized.current || textArea.innerText || ''
+        const emailList = [...new Set([...content?.replaceAll('\n', ' ')?.replaceAll(/\,/g, ' ')?.replaceAll(/\，/g, ' ')?.trim()?.split(/\s+/)])]
+        const tempValid = [],
+            tempInValid = []
+        emailList.forEach(item => {
+            const email = item?.trim();
+            email && (isValidEmail(email) ? tempValid : tempInValid).push(email)
+        })
+        setValid(tempValid)
+        setInValid(tempInValid)
+        return [tempValid, tempInValid]
+    }, [memorized.current])
 
     // 删除tag
     const deleteTag = useCallback(child => {
@@ -110,21 +102,6 @@ const CustomTextArea = () => {
         parent.appendChild(span)
     }, [deleteTag])
 
-    // 实时更新并获取合法/非法email
-    const convertToEmails = useCallback(textArea => {
-        const content = memorized.current || textArea.innerText || ''
-        const emailList = [...new Set([...content?.replaceAll('\n', ' ')?.replaceAll(/\,/g, ' ')?.replaceAll(/\，/g, ' ')?.trim()?.split(/\s+/)])]
-        const tempValid = [],
-            tempInValid = []
-        emailList.forEach(item => {
-            const email = item?.trim();
-            email && (isValidEmail(email) ? tempValid : tempInValid).push(email)
-        })
-        setValid(tempValid)
-        setInValid(tempInValid)
-        return [tempValid, tempInValid]
-    }, [memorized.current])
-
     // 批量添加标
     const batchAddTags = useCallback((textArea, code) => {
         const [tempValid, tempInValid] = convertToEmails(textArea)
@@ -145,6 +122,30 @@ const CustomTextArea = () => {
         }
         code && showInlast(addRef.current)
     }, [convertToEmails, addTag, showInlast])
+
+    const handleOpen = useCallback(() => {
+        setOpen(true);
+    }, []);
+
+    const handleClose = useCallback(() => {
+        if (step === 1) {
+            memorized.current = null
+            setOpen(false);
+            addRef.current.innerText = null
+        } else {
+            setStep(1);
+            setTimeout(() => batchAddTags(addRef.current), 0)
+        }
+    }, [memorized.current, batchAddTags, addRef.current, step]);
+
+    const handleOk = useCallback(() => {
+        if (step === 1) {
+            memorized.current = addRef.current.innerText
+            setStep(2)
+        } else {
+            console.log(valid)
+        }
+    }, [step, addRef.current, memorized.current, valid]);
 
     useEffect(() => {
         if (addRef.current) {
