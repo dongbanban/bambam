@@ -1,52 +1,21 @@
-@eyeWidth: 200px;
-@eyeHeight: 200px;
-@pupilWidth: 24px;
-@pupilHeight: 24px;
-@magatamaWidth: 24px;
-@magatamaHeight: 24px;
+@times: 1.5;
+@eyeWidth: 100px * @times;
+@eyeHeight: 100px * @times;
+@pupilWidth: 12px * @times;
+@pupilHeight: 12px * @times;
+@magatamaWidth: 12px * @times;
+@magatamaHeight: 12px * @times;
 @tailWidth: (@magatamaWidth/2) - 2px;
 @tailHeight: @magatamaHeight - 2px;
-@distance: 70px;
+@distance: 30px * @times;
 
 @keyframes whirl {
     0% {
         transform: rotate(0deg);
     }
 
-    10% {
-        transform: rotate(36deg);
-    }
-
-    20% {
-        transform: rotate(72deg);
-    }
-
-    30% {
-        transform: rotate(108deg);
-    }
-
-    40% {
-        transform: rotate(144deg);
-    }
-
     50% {
         transform: rotate(180deg);
-    }
-
-    60% {
-        transform: rotate(216deg);
-    }
-
-    70% {
-        transform: rotate(252deg);
-    }
-
-    80% {
-        transform: rotate(288deg);
-    }
-
-    90% {
-        transform: rotate(324deg);
     }
 
     100% {
@@ -55,6 +24,14 @@
 }
 
 .sharingan {
+    &-eyelids {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        // width: @eyeWidth * 2.4;
+        // height: @eyeHeight + 20;
+    }
+
     &-eye {
         box-sizing: content-box;
         display: inline-flex;
@@ -71,7 +48,7 @@
     &-whirl {
         // animation-duration: 1s;
         // animation-fill-mode: both;
-        // animation-timing-function: linear;
+        // animation-timing-function: ease-in-out;
         // animation-name: whirl;
         // animation-play-state: running;
         // animation-iteration-count: infinite;
@@ -90,8 +67,8 @@
     }
 
     &-circle-line {
-        width: 140px;
-        height: 140px;
+        width: @distance*2 + 2;
+        height: @distance*2 + 2;
         border: 3px solid black;
         border-radius: 50%;
     }
@@ -106,14 +83,22 @@
         &::before {
             content: "";
             position: absolute;
-            top: 12px;
+            top: (@magatamaWidth/2);
             left: 0px;
             width: @tailWidth;
             height: @tailHeight;
             border-color: black;
             border-style: solid;
-            border-width: 0 0 0 @tailWidth - 2;
+            // border-width: 0 0 0 @tailWidth - 2;
             border-radius: 0 0 0 100%;
+
+            & when(@tailWidth - 2 <=5) {
+                border-width: 0 0 0 5px;
+            }
+
+            & when(@tailWidth - 2 > 5) {
+                border-width: 0 0 0 @tailWidth - 2;
+            }
         }
 
         &-top {
