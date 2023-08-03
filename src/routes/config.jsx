@@ -52,6 +52,11 @@ const routeConfig = [
                 element: ac(lazy(() => import('views/componentsDemo'))),
                 errorElement: <ErrorRoute />
             },
+            {
+                path: "/sharinganDemo",
+                element: ac(lazy(() => import('views/sharinganDemo'))),
+                errorElement: <ErrorRoute />
+            },
         ]
     },
 ]

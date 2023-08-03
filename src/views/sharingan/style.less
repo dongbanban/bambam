@@ -1,0 +1,84 @@
+@eyeWidth: 200px;
+@eyeHeight: 200px;
+@pupilWidth: 24px;
+@pupilHeight: 24px;
+@magatamaWidth: 24px;
+@magatamaHeight: 24px;
+@tailWidth: (@magatamaWidth/2) - 2px;
+@tailHeight: @magatamaHeight - 2px;
+@distance: 70px;
+
+.sharingan {
+    &-eye {
+        box-sizing: content-box;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: @eyeWidth;
+        height: @eyeHeight;
+        background: #d21801;
+        border: 6px solid black;
+        border-radius: 50%;
+    }
+
+    &-pupil {
+        width: @pupilWidth;
+        height: @pupilHeight;
+        border-radius: 50%;
+        background: black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: 0 - (@pupilWidth/2);
+        margin-left: 0 - (@pupilHeight/2);
+    }
+
+    &-circle-line {
+        width: 140px;
+        height: 140px;
+        border: 3px solid black;
+        border-radius: 50%;
+    }
+
+    &-magatama {
+        position: relative;
+        width: @magatamaWidth;
+        height: @magatamaHeight;
+        border-radius: @magatamaWidth;
+        background-color: black;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            left: 0px;
+            width: @tailWidth;
+            height: @tailHeight;
+            border-color: black;
+            border-style: solid;
+            border-width: 0 0 0 @tailWidth - 2;
+            border-radius: 0 0 0 100%;
+        }
+
+        &-top {
+            transform: rotate(60deg) rotateX(180deg);
+            position: absolute;
+            top: (@eyeWidth/2) - (@distance) - (@magatamaHeight/2);
+        }
+
+        &-left {
+            transform: rotate(-60deg) rotateX(180deg);
+            position: absolute;
+            top: (@eyeWidth/2) + (@distance)*sin(30deg) - (@magatamaWidth/2);
+            left: (@eyeWidth/2) - (@distance)*sin(30deg)*sqrt(3) - (@magatamaWidth/2)
+        }
+
+        &-right {
+            transform: rotateY(180deg);
+            position: absolute;
+            top: (@eyeWidth/2) + (@distance)*sin(30deg) - (@magatamaWidth/2);
+            right: (@eyeWidth/2) - (@distance)*sin(30deg)*sqrt(3) - (@magatamaWidth/2)
+        }
+    }
+}

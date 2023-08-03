@@ -67,6 +67,11 @@ const menu = [
         iconEl: <AppstoreOutlined />,
         route: '/componentsDemo'
     },
+    {
+        title: 'Sharingan',
+        iconEl: <AppstoreOutlined />,
+        route: '/sharinganDemo'
+    },
 ];
 
 export { recursionMenu, menu } 
