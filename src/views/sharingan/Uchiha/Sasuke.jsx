@@ -8,7 +8,7 @@ import Magatama from '../item/magatama'
 
 const SasukeEye = () => {
     return (
-        <SharinganEye>
+        <SharinganEye className='sharingan-whirl'>
             <div className='sharingan-circle-line'></div>
             <div className='sharingan-pupil'></div>
             <Magatama className='sharingan-magatama-top' />

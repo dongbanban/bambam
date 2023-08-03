@@ -4,9 +4,13 @@
  */
 import React from 'react'
 
-const SharinganEye = ({ children }) => {
+import classNames from 'classnames'
+
+const SharinganEye = ({ children, className }) => {
     return (
-        <div className='sharingan-eye'>
+        <div className={classNames('sharingan-eye', {
+            [className]: className
+        })}>
             {children}
         </div>
     )
