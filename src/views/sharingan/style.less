@@ -25,11 +25,26 @@
 
 .sharingan {
     &-eyelids {
+        position: relative;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        // width: @eyeWidth * 2.4;
-        // height: @eyeHeight + 20;
+        width: @eyeWidth * 2.4;
+        height: @eyeHeight + 20;
+        // clip-path: ellipse(closest-side farthest-side);
+
+        &::before {
+            content: "";
+            position: absolute;
+            background: #fff;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 20px black;
+            transform: rotate(10deg);
+        }
     }
 
     &-eye {
