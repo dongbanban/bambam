@@ -4,9 +4,10 @@
  */
 
 import useFirstMount from './UseFirstMount'
+import useWhirl from './UseWhirl'
 import useLocationListen from './UseLocationListen'
 import useMount from './UseMount'
-import useUpdateEffect from './UseUpdateEffect'
 import useToggleState from './UseToggleState'
+import useUpdateEffect from './UseUpdateEffect'
 
-export { useFirstMount, useLocationListen, useMount, useUpdateEffect, useToggleState }
+export { useFirstMount, useWhirl, useLocationListen, useMount, useUpdateEffect, useToggleState }

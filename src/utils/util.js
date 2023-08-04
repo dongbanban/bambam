@@ -1,5 +1,5 @@
 /*
- * @FilePath: /Users/i104/vite3/src/utils/util.js
+ * @FilePath: /Users/i104/bambam/src/utils/util.js
  * @author: dongyang(yang.dong@derbysoft.net)
  */
 import { ValueType } from 'enum'
@@ -30,5 +30,5 @@ export {
     isFile,
     isBlank,
     isFalseValue,
-    getUuid
+    getUuid,
 }

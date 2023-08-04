@@ -6,9 +6,9 @@ import React from 'react'
 
 import classNames from 'classnames'
 
-const SharinganEye = ({ children, className }) => {
+const SharinganEye = ({ children, className, id }) => {
     return (
-        <div className={classNames('sharingan-eye', {
+        <div id={id} className={classNames('sharingan-eye', {
             [className]: className
         })}>
             {children}

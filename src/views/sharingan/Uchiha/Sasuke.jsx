@@ -6,11 +6,14 @@ import React from 'react'
 import SharinganEyelids from '../item/eyelids'
 import SharinganEye from '../item/eye'
 import Magatama from '../item/magatama'
+import { useWhirl } from 'utils/hooks'
 
 const SasukeEye = () => {
+    const { whirl } = useWhirl({ id: 'SasukeEye' })
+
     return (
         <SharinganEyelids>
-            <SharinganEye className='sharingan-whirl'>
+            <SharinganEye id='SasukeEye'>
                 <div className='sharingan-circle-line'></div>
                 <div className='sharingan-pupil'></div>
                 <Magatama className='sharingan-magatama-top' />
