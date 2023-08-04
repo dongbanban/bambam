@@ -3,15 +3,15 @@
  * @author: dongyang(yang.dong@derbysoft.net)
  */
 import React from 'react'
-import { SasukeEye } from './sharingan/Uchiha'
+import SharinganGroup from './sharingan'
 import './sharingan/style.less'
 
-const SharinganGroup = () => {
+const SharinganDemo = () => {
     return (
         <>
-            <SasukeEye />
+            <SharinganGroup />
         </>
     )
 }
 
-export default SharinganGroup
+export default SharinganDemo

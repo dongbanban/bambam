@@ -1,15 +1,15 @@
 /*
- * @FilePath: /Users/i104/bambam/src/views/sharingan/Uchiha/Sasuke.jsx
+ * @FilePath: /Users/i104/bambam/src/views/sharingan/index.jsx
  * @author: dongyang(yang.dong@derbysoft.net)
  */
 import React from 'react'
 import { Space } from 'antd'
-import SharinganEyelids from '../item/eyelids'
-import SharinganEye from '../item/eye'
-import Magatama from '../item/magatama'
+import SharinganEyelids from './item/eyelids'
+import SharinganEye from './item/eye'
+import Magatama from './item/magatama'
 import { useWhirl } from 'utils/hooks'
 
-const SasukeEye = () => {
+const SharinganGroup = () => {
     useWhirl({ ids: ['Magatama', 'kaleidoscope', 'kaleidoscope_eternal'] })
 
     return (
@@ -53,4 +53,4 @@ const SasukeEye = () => {
     )
 }
 
-export default SasukeEye
+export default SharinganGroup
