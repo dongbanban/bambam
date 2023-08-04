@@ -10,7 +10,7 @@ import Magatama from '../item/magatama'
 import { useWhirl } from 'utils/hooks'
 
 const SasukeEye = () => {
-    useWhirl({ ids: ['Magatama', 'kaleidoscope'] })
+    useWhirl({ ids: ['Magatama', 'kaleidoscope', 'kaleidoscope_eternal'] })
 
     return (
         <Space>
@@ -32,6 +32,21 @@ const SasukeEye = () => {
                     <div className='sharingan-kaleidoscope'></div>
                     <div className='sharingan-kaleidoscope' style={{ transform: 'rotate(55deg)' }}></div>
                     <div className='sharingan-kaleidoscope-fill2'></div>
+                </SharinganEye>
+            </SharinganEyelids>
+
+            <SharinganEyelids>
+                <SharinganEye id='kaleidoscope_eternal' style={{ background: 'black' }}>
+                    <div className='sharingan-pupil eternal'></div>
+                    <div className='sharingan-kaleidoscope' style={{ transform: 'rotate(-55deg)' }}></div>
+                    <div className='sharingan-kaleidoscope-fill1'></div>
+                    <div className='sharingan-kaleidoscope'></div>
+                    <div className='sharingan-kaleidoscope' style={{ transform: 'rotate(55deg)' }}></div>
+                    <div className='sharingan-kaleidoscope-fill2'></div>
+
+                    <div className='sharingan-kaleidoscope-eternal' style={{ transform: 'rotate(-55deg)' }}></div>
+                    <div className='sharingan-kaleidoscope-eternal' style={{ transform: 'rotate(180deg)' }}></div>
+                    <div className='sharingan-kaleidoscope-eternal' style={{ transform: 'rotate(55deg)' }}></div>
                 </SharinganEye>
             </SharinganEyelids>
         </Space>
