@@ -8,6 +8,7 @@
 @tailWidth: (@magatamaWidth/2) - 2px;
 @tailHeight: @magatamaHeight - 2px;
 @distance: 36px * @times;
+@eyeColor: #d21801;
 
 @keyframes whirl {
     0% {
@@ -25,24 +26,23 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        background: white;
-        width: @eyeWidth * 2.4;
+        // background: white;
+        width: @eyeWidth + 20;
         height: @eyeHeight + 20;
         clip-path: ellipse(closest-side farthest-side);
-        // transform: rotate(10deg);
 
-        &::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 2px solid black;
-            box-sizing: border-box;
-            clip-path: ellipse(closest-side farthest-side);
-        }
+        // &::after {
+        //     content: "";
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     border-radius: 50%;
+        //     border: 2px solid black;
+        //     box-sizing: border-box;
+        //     clip-path: ellipse(closest-side farthest-side);
+        // }
     }
 
     &-eye {
@@ -50,14 +50,10 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        position: absolute;
-        // top: 50%;
-        // left: 50%;
-        // margin-top: 0 - (@eyeWidth/2) - 6;
-        // margin-left: 0 - (@eyeHeight/2) - 6;
+        position: relative;
         width: @eyeWidth;
         height: @eyeHeight;
-        background: #d21801;
+        background: @eyeColor;
         border: 6px solid black;
         border-radius: 50%;
         transition: transform 0.3s ease-out;
@@ -79,6 +75,7 @@
         border-radius: 50%;
         background: black;
         position: absolute;
+        z-index: 100;
         top: 50%;
         left: 50%;
         margin-top: 0 - (@pupilWidth/2);
@@ -108,7 +105,6 @@
             height: @tailHeight;
             border-color: black;
             border-style: solid;
-            // border-width: 0 0 0 @tailWidth - 2;
             border-radius: 0 0 0 100%;
 
             & when(@tailWidth - 2 <=5) {
@@ -138,6 +134,65 @@
             position: absolute;
             top: (@eyeWidth/2) + (@distance)*sin(30deg) - (@magatamaWidth/2);
             right: (@eyeWidth/2) - (@distance)*sin(30deg)*sqrt(3) - (@magatamaWidth/2)
+        }
+    }
+
+    &-kaleidoscope {
+        display: inline-flex;
+        width: 42px;
+        height: 158px;
+        position: absolute;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid black;
+            box-sizing: border-box;
+            background: @eyeColor;
+        }
+
+        &-fill1 {
+            width: 42px;
+            height: 158px;
+            position: absolute;
+            z-index: 10;
+            transform: rotate(-55deg);
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                border: 2px solid black;
+                box-sizing: border-box;
+            }
+        }
+
+        &-fill2 {
+            width: 42px;
+            height: 158px;
+            position: absolute;
+            z-index: 10;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                border: 2px solid black;
+                box-sizing: border-box;
+            }
         }
     }
 }
