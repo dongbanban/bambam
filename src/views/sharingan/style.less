@@ -1,15 +1,23 @@
 @times: 1.5;
-@eyeWidth: 100px * @times;
-@eyeHeight: 100px * @times;
-@pupilWidth: 12px * @times;
-@pupilHeight: 12px * @times;
-@magatamaWidth: 12px * @times;
-@magatamaHeight: 12px * @times;
-@tailWidth: (@magatamaWidth/2) - 2px;
-@tailHeight: @magatamaHeight - 2px;
+@eye_border: 6px;
+@eye_width: 100px * @times;
+@eye_height: 100px * @times;
+@eyelids_width: @eye_width + 20;
+@eyelids_height: @eye_height + 20;
+@pupil_width: 12px * @times;
+@pupil_height: 12px * @times;
+@pupil_eternal_width: @pupil_width + 2;
+@pupil_eternal_height: @pupil_height + 2;
+@magatama_width: 12px * @times;
+@magatama_height: 12px * @times;
+@tail_width: (@magatama_width/2) - 2px;
+@tail_height: @magatama_height - 2px;
 @distance: 36px * @times;
-@eyeColor: #d21801;
-@kaleidoscopeWidth: 46px;
+@eye_color: #d21801;
+@kaleidoscope_width: 46px;
+@kaleidoscope_height: @eye_width + @eye_border * 2;
+@kaleidoscope_eternal_width: @pupil_width + 1;
+@kaleidoscope_eternal_height: (@eye_width + 12) * 0.8;
 
 @keyframes whirl {
     0% {
@@ -27,11 +35,10 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        // background: white;
-        width: @eyeWidth + 20;
-        height: @eyeHeight + 20;
+        width: @eyelids_width;
+        height: @eyelids_height;
         clip-path: ellipse(closest-side farthest-side);
-
+        // background: white;
         // &::after {
         //     content: "";
         //     position: absolute;
@@ -52,10 +59,10 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        width: @eyeWidth;
-        height: @eyeHeight;
-        background: @eyeColor;
-        border: 6px solid black;
+        width: @eye_width;
+        height: @eye_height;
+        background: @eye_color;
+        border: @eye_border solid black;
         border-radius: 50%;
         transition: transform 0.3s ease-out;
         pointer-events: none;
@@ -71,24 +78,24 @@
     }
 
     &-pupil {
-        width: @pupilWidth;
-        height: @pupilHeight;
+        width: @pupil_width;
+        height: @pupil_height;
         border-radius: 50%;
         background: black;
         position: absolute;
         z-index: 100;
         top: 50%;
         left: 50%;
-        margin-top: 0 - (@pupilWidth/2);
-        margin-left: 0 - (@pupilHeight/2);
+        margin-top: 0 - (@pupil_width/2);
+        margin-left: 0 - (@pupil_height/2);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
         &.eternal {
-            background: @eyeColor;
-            width: @pupilWidth + 2;
-            height: @pupilHeight + 2;
-            margin-top: 0 - ((@pupilWidth+2)/2);
-            margin-left: 0 - ((@pupilHeight+2)/2);
+            background: @eye_color;
+            width: @pupil_eternal_width;
+            height: @pupil_eternal_height;
+            margin-top: 0 - (@pupil_eternal_width/2);
+            margin-left: 0 - (@pupil_eternal_height/2);
         }
     }
 
@@ -101,56 +108,56 @@
 
     &-magatama {
         position: relative;
-        width: @magatamaWidth;
-        height: @magatamaHeight;
-        border-radius: @magatamaWidth;
+        width: @magatama_width;
+        height: @magatama_height;
+        border-radius: @magatama_width;
         background-color: black;
 
         &::before {
             content: "";
             position: absolute;
-            top: (@magatamaWidth/2);
+            top: (@magatama_width/2);
             left: 0px;
-            width: @tailWidth;
-            height: @tailHeight;
+            width: @tail_width;
+            height: @tail_height;
             border-color: black;
             border-style: solid;
             border-radius: 0 0 0 100%;
 
-            & when(@tailWidth - 2 <=5) {
+            & when(@tail_width - 2 <=5) {
                 border-width: 0 0 0 5px;
             }
 
-            & when(@tailWidth - 2 > 5) {
-                border-width: 0 0 0 @tailWidth - 2;
+            & when(@tail_width - 2 > 5) {
+                border-width: 0 0 0 @tail_width - 2;
             }
         }
 
         &-top {
             transform: rotate(60deg) rotateX(180deg);
             position: absolute;
-            top: (@eyeWidth/2) - (@distance) - (@magatamaHeight/2);
+            top: (@eye_width/2) - (@distance) - (@magatama_height/2);
         }
 
         &-left {
             transform: rotate(-60deg) rotateX(180deg);
             position: absolute;
-            top: (@eyeWidth/2) + (@distance)*sin(30deg) - (@magatamaWidth/2);
-            left: (@eyeWidth/2) - (@distance)*sin(30deg)*sqrt(3) - (@magatamaWidth/2)
+            top: (@eye_width/2) + (@distance)*sin(30deg) - (@magatama_width/2);
+            left: (@eye_width/2) - (@distance)*sin(30deg)*sqrt(3) - (@magatama_width/2)
         }
 
         &-right {
             transform: rotateY(180deg);
             position: absolute;
-            top: (@eyeWidth/2) + (@distance)*sin(30deg) - (@magatamaWidth/2);
-            right: (@eyeWidth/2) - (@distance)*sin(30deg)*sqrt(3) - (@magatamaWidth/2)
+            top: (@eye_width/2) + (@distance)*sin(30deg) - (@magatama_width/2);
+            right: (@eye_width/2) - (@distance)*sin(30deg)*sqrt(3) - (@magatama_width/2)
         }
     }
 
     &-kaleidoscope {
         display: inline-flex;
-        width: @kaleidoscopeWidth;
-        height: @eyeWidth + 12;
+        width: @kaleidoscope_width;
+        height: @kaleidoscope_height;
         position: absolute;
 
         &::after {
@@ -163,12 +170,12 @@
             border-radius: 50%;
             border: 2px solid black;
             box-sizing: border-box;
-            background: @eyeColor;
+            background: @eye_color;
         }
 
         &-fill1 {
-            width: @kaleidoscopeWidth;
-            height: @eyeWidth + 12;
+            width: @kaleidoscope_width;
+            height: @kaleidoscope_height;
             position: absolute;
             z-index: 10;
             transform: rotate(-55deg);
@@ -187,8 +194,8 @@
         }
 
         &-fill2 {
-            width: @kaleidoscopeWidth;
-            height: @eyeWidth + 12;
+            width: @kaleidoscope_width;
+            height: @kaleidoscope_height;
             position: absolute;
             z-index: 10;
 
@@ -207,8 +214,8 @@
 
         &-eternal {
             display: inline-flex;
-            width: @pupilWidth+1;
-            height: (@eyeWidth + 12) * 0.8;
+            width: @kaleidoscope_eternal_width;
+            height: @kaleidoscope_eternal_height;
             position: absolute;
             z-index: 10;
             background: black;
