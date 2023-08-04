@@ -43,7 +43,6 @@ const SharinganGroup = () => {
                     <div className='sharingan-kaleidoscope'></div>
                     <div className='sharingan-kaleidoscope' style={{ transform: 'rotate(55deg)' }}></div>
                     <div className='sharingan-kaleidoscope-fill2'></div>
-
                     <div className='sharingan-kaleidoscope-eternal' style={{ transform: 'rotate(-55deg)' }}></div>
                     <div className='sharingan-kaleidoscope-eternal' style={{ transform: 'rotate(180deg)' }}></div>
                     <div className='sharingan-kaleidoscope-eternal' style={{ transform: 'rotate(55deg)' }}></div>
