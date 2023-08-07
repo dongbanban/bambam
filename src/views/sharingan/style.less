@@ -1,19 +1,40 @@
 @times: 1.5;
+
 @eye_border: 6px;
+
 @eye_width: 100px * @times;
 @eye_height: 100px * @times;
+
 @eyelids_width: @eye_width + 20;
 @eyelids_height: @eye_height + 20;
+
 @pupil_width: 12px * @times;
 @pupil_height: 12px * @times;
 @pupil_eternal_width: @pupil_width + 2;
 @pupil_eternal_height: @pupil_height + 2;
+@pupil_itachi_width: 15px;
+@pupil_itachi_height: 15px;
+@pupil_shisui_width: 15px;
+@pupil_shisui_height: 15px;
+
 @magatama_width: 12px * @times;
 @magatama_height: 12px * @times;
+@kaleidoscope_itachi_width: 40px * @times;
+@kaleidoscope_itachi_height: 40px * @times;
+@kaleidoscope_shisui_width: 56px * @times;
+@kaleidoscope_shisui_height: 56px * @times;
+
 @tail_width: (@magatama_width/2) - 2px;
 @tail_height: @magatama_height - 2px;
+@kaleidoscope_itachi_tail_width: (@kaleidoscope_itachi_width/2) + 10;
+@kaleidoscope_itachi_tail_height: @kaleidoscope_itachi_height;
+@kaleidoscope_shisui_tail_width: @kaleidoscope_itachi_tail_width + 2;
+@kaleidoscope_shisui_tail_height: @kaleidoscope_shisui_height - 16;
+
 @distance: 36px * @times;
+
 @eye_color: #d21801;
+
 @kaleidoscope_width: 46px;
 @kaleidoscope_height: @eye_width + @eye_border * 2;
 @kaleidoscope_eternal_width: @pupil_width + 1;
@@ -94,8 +115,32 @@
             background: @eye_color;
             width: @pupil_eternal_width;
             height: @pupil_eternal_height;
+            box-shadow: 0 0 10px @eye_color;
+            position: absolute;
             margin-top: 0 - (@pupil_eternal_width/2);
             margin-left: 0 - (@pupil_eternal_height/2);
+        }
+
+        &.itachi {
+            background: @eye_color;
+            width: @pupil_itachi_width;
+            height: @pupil_itachi_height;
+            box-shadow: 0 0 10px @eye_color;
+            position: absolute;
+            margin-top: 0 - (@pupil_itachi_width/2);
+            margin-left: 0 - (@pupil_itachi_height/2);
+        }
+
+        &.shisui {
+            box-sizing: content-box;
+            background: black;
+            width: @pupil_shisui_width;
+            height: @pupil_shisui_height;
+            box-shadow: 0 0 10px @eye_color;
+            position: absolute;
+            margin-top: 0 - 14- (@pupil_shisui_width/2);
+            margin-left: 0 - 14-(@pupil_shisui_height/2);
+            border: 14px solid @eye_color;
         }
     }
 
@@ -233,6 +278,74 @@
             //     box-sizing: border-box;
             //     border: 2px solid black;
             // }
+        }
+
+        &-itachi {
+            position: absolute;
+            width: @kaleidoscope_itachi_width;
+            height: @kaleidoscope_itachi_height;
+            border-radius: @kaleidoscope_itachi_width;
+            background-color: black;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: (@kaleidoscope_itachi_width/2);
+                width: @kaleidoscope_itachi_tail_width;
+                height: @kaleidoscope_itachi_height;
+                border-color: black;
+                border-style: solid;
+                border-radius: 0 0 0 100%;
+                border-width: 0 0 0 @kaleidoscope_itachi_tail_width+5;
+            }
+
+            &-top {
+                transform: rotate(140deg) translate(0, 0) rotateY(180deg);
+            }
+
+            &-left {
+                transform: rotate(20deg) translate(0, 0) rotateY(180deg);
+            }
+
+            &-right {
+                transform: rotate(-100deg) translate(0, 0) rotateY(180deg);
+            }
+        }
+
+        &-shisui {
+            position: absolute;
+            width: @kaleidoscope_shisui_width;
+            height: @kaleidoscope_shisui_height;
+            border-radius: @kaleidoscope_shisui_width;
+            background-color: black;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: (@kaleidoscope_shisui_width/2);
+                width: @kaleidoscope_shisui_tail_width;
+                height: @kaleidoscope_shisui_tail_height;
+                border-color: black;
+                border-style: solid;
+                border-radius: 0 0 0 100%;
+                border-width: 0 0 0 @kaleidoscope_shisui_tail_width - 2;
+            }
+
+            &-top {
+                transform: rotate(180deg) translate(0, 0) rotateY(180deg);
+            }
+
+            &-bottom {
+                transform: rotate(0deg) translate(0, 0) rotateY(180deg);
+            }
+
+            &-left {
+                transform: rotate(90deg) translate(0, 0) rotateY(180deg);
+            }
+
+            &-right {
+                transform: rotate(-90deg) translate(0, 0) rotateY(180deg);
+            }
         }
     }
 }
