@@ -2,35 +2,51 @@
  * @FilePath: /Users/i104/bambam/src/views/menuDemo.jsx
  * @author: dongyang(yang.dong@derbysoft.net)
  */
-import React, { useState, memo } from 'react'
+import React from 'react'
+import { Flex } from 'antd'
+import './menuDemo.less'
 
-const Child1 = props => {
-    console.log('我是子组件1', props)
-    return <div>我是子组件1</div>
-}
-
-const isEqual = (prevProps, nextProps) => {
-    return prevProps.count !== nextProps.count
-}
-const Child2 = props => {
-    console.log('我是子组件2', props)
-    return <div>我是子组件2</div>
-}
-
-const ChildMemo = memo(Child2, isEqual)
-
-function MemoTest() {
-    console.log(111)
-    const [count, setCount] = useState(0)
+function MenuTest() {
     return (
-        <>
-            <button type="button" onClick={() => setCount(c => c + 1)}>
-                {count}
-            </button>
-            <Child1 count={count} />
-            <ChildMemo count={count} />
-        </>
+        <Flex className='left' gap={0} horizontal>
+            <Flex gap={0} vertical>
+                <Flex className='item' justify='center' align='center'>
+                    <div>111</div>
+                    <div className='border-bottom' ></div>
+                </Flex>
+                <Flex className='item' justify='center' align='center'>
+                    <div className='border-top'></div>
+                    <div>111</div>
+                    <div className='border-bottom' ></div>
+                </Flex>
+                <Flex className='item' justify='center' align='center'>
+                    <div className='border-top'></div>
+                    <div>111</div>
+                    <div className='border-bottom' ></div>
+                </Flex>
+                <Flex className='item' justify='center' align='center'>
+                    <div className='border-top'></div>
+                    <div>111</div>
+                    <div className='border-bottom' ></div>
+                </Flex>
+                <Flex className='item' justify='center' align='center'>
+                    <div className='border-top'></div>
+                    <div>111</div>
+                    <div className='border-bottom' ></div>
+                </Flex>
+                <Flex className='item' justify='center' align='center'>
+                    <div className='border-top'></div>
+                    <div>111</div>
+                    <div className='border-bottom' ></div>
+                </Flex>
+                <Flex className='item' justify='center' align='center'>
+                    <div className='border-top'></div>
+                    <div>111</div>
+                </Flex>
+            </Flex>
+            <Flex className='right' justify='center' align='center' flex={1}>222</Flex>
+        </Flex>
     )
 }
 
-export default MemoTest
+export default MenuTest
