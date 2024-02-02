@@ -9,28 +9,50 @@
         height: 48px;
         cursor: pointer;
 
-        .border-top {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            top: -10px;
-            right: 0;
-            background: #004771;
-            border-bottom-right-radius: 20px;
-            z-index: 10;
-            visibility: hidden;
-        }
+        .menu-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
 
-        .border-bottom {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            bottom: -10px;
-            right: 0;
-            background: #004771;
-            border-top-right-radius: 20px;
-            z-index: 10;
-            visibility: hidden;
+            &::before {
+                content: '';
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                top: -10px;
+                right: 0;
+                background: #004771;
+                border-bottom-right-radius: 10px;
+                z-index: 10;
+                visibility: hidden;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                bottom: -10px;
+                right: 0;
+                background: #004771;
+                border-top-right-radius: 10px;
+                z-index: 10;
+                visibility: hidden;
+            }
+
+            &.isFirst {
+                &::before {
+                    display: none;
+                }
+            }
+
+            &.isLast {
+                &::after {
+                    display: none;
+                }
+            }
         }
 
         &:hover {
@@ -38,11 +60,6 @@
             border-bottom-left-radius: 100px;
             background: #fff;
             color: #004771;
-
-            .border-top,
-            .border-bottom {
-                visibility: visible;
-            }
 
             &:not(:first-of-type) {
                 &::before {
@@ -68,6 +85,11 @@
                     right: 0;
                     background: #fff;
                 }
+            }
+
+            .menu-item::before,
+            .menu-item::after {
+                visibility: visible;
             }
         }
     }
