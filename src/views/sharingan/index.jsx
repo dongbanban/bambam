@@ -57,8 +57,7 @@ const SharinganGroup = () => {
                         <div className='sharingan-kaleidoscope-itachi sharingan-kaleidoscope-itachi-right' />
                     </SharinganEye>
                 </SharinganEyelids>
-            </Space>
-            <Space>
+
                 <SharinganEyelids>
                     <SharinganEye id='shisui'>
                         <div className='sharingan-pupil shisui'></div>

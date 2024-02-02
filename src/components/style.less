@@ -5,6 +5,28 @@
 }
 
 .bulk-add {
+    &-trigger {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin-top: 34px;
+
+        &:hover {
+            border-radius: 4px;
+            background: #F2F6F8
+        }
+    }
+
+    &-icon {
+        color: #004771;
+        line-height: 1;
+    }
+}
+
+.bulk-add {
     position: relative;
 
     &-label {
@@ -88,6 +110,7 @@
         max-width: 330px;
 
         label {
+            padding-right: 8px;
             max-width: 330px;
             .text-nowrap;
         }
@@ -119,6 +142,7 @@
         max-width: 330px;
 
         label {
+            padding-right: 8px;
             max-width: 330px;
             .text-nowrap;
         }
@@ -129,5 +153,32 @@
             position: absolute;
             right: 10px;
         }
+    }
+
+    &-match {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 8px;
+        padding: 8px 0;
+        color: #313538;
+        font-family: Roboto;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+
+        &-info {
+            display: flex;
+            gap: 16px;
+        }
+    }
+
+    &-clear-all {
+        color: #004771;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        padding-right: 16px;
+        cursor: pointer;
     }
 }
