@@ -15,7 +15,9 @@
             align-items: center;
             height: 100%;
             width: 100%;
+        }
 
+        .active-menu {
             &::before {
                 content: '';
                 position: absolute;
@@ -26,7 +28,7 @@
                 background: #004771;
                 border-bottom-right-radius: 20px;
                 z-index: 10;
-                visibility: hidden;
+                visibility: visible;
             }
 
             &::after {
@@ -39,7 +41,7 @@
                 background: #004771;
                 border-top-right-radius: 20px;
                 z-index: 10;
-                visibility: hidden;
+                visibility: visible;
             }
 
             &.isFirst {
@@ -55,7 +57,7 @@
             }
         }
 
-        &:hover {
+        &.active-item {
             border-top-left-radius: 100px;
             border-bottom-left-radius: 100px;
             background: #fff;
@@ -85,11 +87,6 @@
                     right: 0;
                     background: #fff;
                 }
-            }
-
-            .menu-item::before,
-            .menu-item::after {
-                visibility: visible;
             }
         }
     }
