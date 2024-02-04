@@ -8,13 +8,14 @@ import './menuDemo.less'
 
 function MenuTest() {
     const [menuKey, setKey] = useState(null)
+    const data = new Array(7).fill('menu')
     const menuEl = useMemo(() => {
-        return new Array(7).fill('menu').map((item, index) => {
+        return data.map((item, index) => {
             return <Flex className={`item${index === menuKey ? ' active-item' : ''}`} justify='center' align='center' onClick={() => setKey(index)}>
-                <div className={`menu-item${index === menuKey ? ' active-menu' : ''}${index === 0 ? ' isFirst' : ''}${index === 6 ? ' isLast' : ''}`}>{item + ' ' + index}</div>
+                <div className={`menu-item${index === menuKey ? ' active-menu' : ''}${index === 0 ? ' isFirst' : ''}${index === data?.length - 1 ? ' isLast' : ''}`}>{item + ' ' + index}</div>
             </Flex>
         })
-    }, [menuKey])
+    }, [menuKey, data])
     return (
         <Flex className='left' gap={0} horizontal>
             <Flex gap={0} vertical>
