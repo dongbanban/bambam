@@ -24,9 +24,6 @@ const Grid = () => {
             <div class="item item_e">
                 2fr
             </div>
-            <div class="item item_e">
-                2fr
-            </div>
             <div class="item item_f">
                 2fr
             </div>
