@@ -24,7 +24,7 @@ const AppLayout = () => {
                 <Sider theme='light'>
                     <AppMenu selectedKeys={[location.pathname]} />
                 </Sider >
-                <Content style={{ padding: 40 }}>
+                <Content style={{ padding: 40, overflow: 'auto' }}>
                     <Outlet />
                 </Content>
             </Layout>
