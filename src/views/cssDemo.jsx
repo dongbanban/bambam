@@ -4,10 +4,10 @@
  */
 
 import React from 'react'
-import { Space } from 'antd'
 import BackdropFilter from './cssDemo/backdropFilter'
 import Grid from './cssDemo/grid'
 import LightCard from './cssDemo/lightCard'
+import CubicBezier from './cssDemo/cubicBezier'
 
 const CssDemo = () => {
     return (
@@ -15,6 +15,7 @@ const CssDemo = () => {
             <BackdropFilter />
             <Grid />
             <LightCard />
+            <CubicBezier />
         </div>
     )
 }
