@@ -62,10 +62,10 @@ const LightCard = () => {
     }, [])
 
     return (
-        <div class='flex-box light-box'>
-            <div class='light-card' ref={cardRef}>
+        <div className='flex-box light-box'>
+            <div className='light-card' ref={cardRef}>
                 <div
-                    class={`${isShowLight ? '' : 'hidden'} light`}
+                    className={`${isShowLight ? '' : 'hidden'} light`}
                     // ref={lightRef}
                     style={pos}
                 ></div>

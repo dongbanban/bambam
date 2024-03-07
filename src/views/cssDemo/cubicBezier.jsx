@@ -8,11 +8,11 @@ import './cubicBezier.less'
 
 const CubicBezier = () => {
     return (
-        <div class="box">
-            <div class="ball-box">
-                <div class="ball"></div>
+        <div className="box">
+            <div className="ball-box">
+                <div className="ball"></div>
             </div>
-            <div class="cart"></div>
+            <div className="cart"></div>
         </div>
     )
 }

@@ -8,26 +8,26 @@ import './grid.less'
 
 const Grid = () => {
     return (
-        <div class="grid_container">
-            <div class="item item_a">
+        <div className="grid_container">
+            <div className="item item_a">
                 1fr
             </div>
-            <div class="item item_b">
+            <div className="item item_b">
                 3fr
             </div>
-            <div class="item item_c">
+            <div className="item item_c">
                 1fr
             </div>
-            <div class="item item_d">
+            <div className="item item_d">
                 1fr
             </div>
-            <div class="item item_e">
+            <div className="item item_e">
                 2fr
             </div>
-            <div class="item item_f">
+            <div className="item item_f">
                 2fr
             </div>
-            <div class="item item_g">
+            <div className="item item_g">
                 2fr
             </div>
         </div>
