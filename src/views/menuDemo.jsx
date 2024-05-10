@@ -2,13 +2,7 @@
  * @FilePath: /Users/i104/bambam/src/views/menuDemo.jsx
  * @author: dongyang(yang.dong@derbysoft.net)
  */
-import React, {
-  useMemo,
-  useState,
-  useEffect,
-  useRef,
-  useCallback,
-} from "react";
+import React, { useMemo, useState, useEffect, useCallback } from "react";
 import { Flex } from "antd";
 import "./menuDemo.less";
 
@@ -19,7 +13,7 @@ function MenuTest() {
     return data.map((item, index) => {
       return (
         <Flex
-          key={item + "menu"}
+          key={item + index}
           className={`item${index === menuKey ? " active-item" : ""}`}
           justify="center"
           align="center"
@@ -38,7 +32,6 @@ function MenuTest() {
   }, [menuKey, data]);
 
   const total = 637226;
-  const cb = useRef(null);
   const [current, setCurrent] = useState(0);
   const getNextCurrent = useCallback(() => {
     const next = parseInt(Math.random() * (total - current) + current) + 1;
@@ -46,17 +39,9 @@ function MenuTest() {
   }, [total, current]);
 
   useEffect(() => {
-    if (current < total) {
-      cb.current = getNextCurrent;
-    }
-  }, [getNextCurrent, current, total]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      current < total && cb.current?.();
-    }, 100);
+    const timer = setTimeout(() => getNextCurrent(), 100);
     return () => clearTimeout(timer);
-  }, [current, total]);
+  }, [current, total, getNextCurrent]);
 
   return (
     <>
