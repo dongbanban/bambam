@@ -3,15 +3,15 @@
  * @author: dongyang(yang.dong@derbysoft.net)
  */
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 /**
  * 首次渲染
  */
-const useMount = fn => {
-    useEffect(() => {
-        fn?.();
-    }, []);
+const useMount = (fn) => {
+  useEffect(() => {
+    fn?.();
+  }, []);
 };
 
-export default useMount
+export default useMount;

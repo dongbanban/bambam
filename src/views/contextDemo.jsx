@@ -2,16 +2,21 @@
  * @FilePath: /click/Users/i104/vite3/src/views/contextDemo.jsx
  * @author: dongyang(yang.dong@derbysoft.net)
  */
-import React, { PureComponent, createContext, useState, useContext } from 'react'
+import React, {
+  PureComponent,
+  createContext,
+  useState,
+  useContext,
+} from "react";
 
-const GlobalContext = createContext(1)
-const { Provider, Consumer } = GlobalContext
+const GlobalContext = createContext(1);
+const { Provider, Consumer } = GlobalContext;
 
 export default function ContextTest() {
-  const [theme, setTheme] = useState('yellow')
+  const [theme, setTheme] = useState("yellow");
   const toggleTheme = () => {
-    setTheme(theme === 'yellow' ? 'red' : 'yellow')
-  }
+    setTheme(theme === "yellow" ? "red" : "yellow");
+  };
   return (
     <>
       <Provider value={{ theme, toggleTheme }}>
@@ -20,7 +25,7 @@ export default function ContextTest() {
         <ContextConsumer3 />
       </Provider>
     </>
-  )
+  );
 }
 
 function ContextConsumer1() {
@@ -35,12 +40,12 @@ function ContextConsumer1() {
         </>
       )}
     </Consumer>
-  )
+  );
 }
 
 class ContextConsumer2 extends PureComponent {
   render() {
-    const { theme: themeRename } = this.context
+    const { theme: themeRename } = this.context;
     return (
       <>
         <Consumer>
@@ -55,13 +60,13 @@ class ContextConsumer2 extends PureComponent {
         </Consumer>
         <div style={{ background: themeRename }}>{themeRename}</div>
       </>
-    )
+    );
   }
 }
-ContextConsumer2.contextType = GlobalContext
+ContextConsumer2.contextType = GlobalContext;
 
 function ContextConsumer3() {
-  const { theme, toggleTheme } = useContext(GlobalContext)
+  const { theme, toggleTheme } = useContext(GlobalContext);
   return (
     <>
       <button type="button" onClick={toggleTheme}>
@@ -69,5 +74,5 @@ function ContextConsumer3() {
       </button>
       <div style={{ background: theme }}>{theme}</div>
     </>
-  )
+  );
 }

@@ -1,99 +1,99 @@
 .left {
-    background: #004771;
-    color: #fff;
-    padding-left: 10px;
+  background: #004771;
+  color: #fff;
+  padding-left: 10px;
 
-    .item {
-        position: relative;
-        width: 200px;
-        height: 48px;
-        cursor: pointer;
+  .item {
+    position: relative;
+    width: 200px;
+    height: 48px;
+    cursor: pointer;
 
-        .menu-item {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            width: 100%;
-        }
-
-        .active-menu {
-            &::before {
-                content: '';
-                position: absolute;
-                width: 20px;
-                height: 20px;
-                top: -20px;
-                right: 0;
-                background: #004771;
-                border-bottom-right-radius: 20px;
-                z-index: 10;
-                visibility: visible;
-            }
-
-            &::after {
-                content: '';
-                position: absolute;
-                width: 20px;
-                height: 20px;
-                bottom: -20px;
-                right: 0;
-                background: #004771;
-                border-top-right-radius: 20px;
-                z-index: 10;
-                visibility: visible;
-            }
-
-            &.isFirst {
-                &::before {
-                    display: none;
-                }
-            }
-
-            &.isLast {
-                &::after {
-                    display: none;
-                }
-            }
-        }
-
-        &.active-item {
-            border-top-left-radius: 100px;
-            border-bottom-left-radius: 100px;
-            background: #fff;
-            color: #004771;
-
-            &:not(:first-of-type) {
-                &::before {
-                    z-index: 9;
-                    position: absolute;
-                    content: '';
-                    width: 20px;
-                    height: 20px;
-                    top: -20px;
-                    right: 0;
-                    background: #fff;
-                }
-            }
-
-            &:not(:last-of-type) {
-                &::after {
-                    z-index: 9;
-                    position: absolute;
-                    content: '';
-                    width: 20px;
-                    height: 20px;
-                    bottom: -20px;
-                    right: 0;
-                    background: #fff;
-                }
-            }
-        }
+    .menu-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
     }
+
+    .active-menu {
+      &::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: -20px;
+        right: 0;
+        background: #004771;
+        border-bottom-right-radius: 20px;
+        z-index: 10;
+        visibility: visible;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        bottom: -20px;
+        right: 0;
+        background: #004771;
+        border-top-right-radius: 20px;
+        z-index: 10;
+        visibility: visible;
+      }
+
+      &.isFirst {
+        &::before {
+          display: none;
+        }
+      }
+
+      &.isLast {
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    &.active-item {
+      border-top-left-radius: 100px;
+      border-bottom-left-radius: 100px;
+      background: #fff;
+      color: #004771;
+
+      &:not(:first-of-type) {
+        &::before {
+          z-index: 9;
+          position: absolute;
+          content: "";
+          width: 20px;
+          height: 20px;
+          top: -20px;
+          right: 0;
+          background: #fff;
+        }
+      }
+
+      &:not(:last-of-type) {
+        &::after {
+          z-index: 9;
+          position: absolute;
+          content: "";
+          width: 20px;
+          height: 20px;
+          bottom: -20px;
+          right: 0;
+          background: #fff;
+        }
+      }
+    }
+  }
 }
 
 .right {
-    color: #004771;
-    font-size: 30px;
-    background: #fff;
+  color: #004771;
+  font-size: 30px;
+  background: #fff;
 }

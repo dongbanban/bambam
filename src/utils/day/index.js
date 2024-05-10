@@ -2,12 +2,12 @@
  * @FilePath: /Users/i104/vite3/src/utils/day/index.js
  * @author: dongyang(yang.dong@derbysoft.net)
  */
-import dayjs from 'dayjs'; // 引入dayjs插件
-import 'dayjs/locale/zh-cn'; // 引入中文语言包   默认英文语言包
-import './plugin'
+import dayjs from "dayjs"; // 引入dayjs插件
+import "dayjs/locale/zh-cn"; // 引入中文语言包   默认英文语言包
+import "./plugin";
 
-dayjs.locale('zh-cn')
-const defaultFormat = 'YYYY-MM-DD'
+dayjs.locale("zh-cn");
+const defaultFormat = "YYYY-MM-DD";
 
 /**
  * @description:  获取距离date的相对时间,date为空则返回距离现在的相对时间
@@ -15,7 +15,8 @@ const defaultFormat = 'YYYY-MM-DD'
  * @param {*} withoutSuffix
  * @return {*}
  */
-const getRelativeByTo = (date, withoutSuffix = false) => !date ? dayjs().toNow() : dayjs().to(dayjs(date), withoutSuffix)
+const getRelativeByTo = (date, withoutSuffix = false) =>
+  !date ? dayjs().toNow() : dayjs().to(dayjs(date), withoutSuffix);
 
 /**
  * @description:  获取到date的相对时间,date为空则返回到现在的相对时间
@@ -23,7 +24,8 @@ const getRelativeByTo = (date, withoutSuffix = false) => !date ? dayjs().toNow()
  * @param {*} withoutSuffix
  * @return {*}
  */
-const getRelativeByFrom = (date, withoutSuffix = false) => !date ? dayjs().from() : dayjs().from(dayjs(date), withoutSuffix)
+const getRelativeByFrom = (date, withoutSuffix = false) =>
+  !date ? dayjs().from() : dayjs().from(dayjs(date), withoutSuffix);
 
 /**
  * @description: 获取date是当年的第几天
@@ -32,7 +34,7 @@ const getRelativeByFrom = (date, withoutSuffix = false) => !date ? dayjs().from(
  * @param {*} format
  * @return {*}
  */
-const getDayOfYear = date => dayjs(date).dayOfYear()
+const getDayOfYear = (date) => dayjs(date).dayOfYear();
 
 /**
  * @description: 返回date对应年份的第number天的格式化
@@ -41,14 +43,15 @@ const getDayOfYear = date => dayjs(date).dayOfYear()
  * @param {*} format
  * @return {*}
  */
-const setDayOfYear = (date, number, format = defaultFormat) => dayjs(date).dayOfYear(number).format(format)
+const setDayOfYear = (date, number, format = defaultFormat) =>
+  dayjs(date).dayOfYear(number).format(format);
 
 /**
  * @description: 获取date处于当年的第几周
  * @param {*} date
  * @return {*}
  */
-const getWeekOfYear = date => dayjs(date).week()
+const getWeekOfYear = (date) => dayjs(date).week();
 
 /**
  * @description: 返回date对应年份的第number周的同一天，如date为周三，返回的则是周三对应的日期格式化
@@ -57,7 +60,8 @@ const getWeekOfYear = date => dayjs(date).week()
  * @param {*} format
  * @return {*}
  */
-const setWeekOfYear = (date, number, format = defaultFormat) => dayjs(date).week(number).format(format)
+const setWeekOfYear = (date, number, format = defaultFormat) =>
+  dayjs(date).week(number).format(format);
 
 /**
  * @description: 获取时间差,默认单位为d
@@ -67,21 +71,25 @@ const setWeekOfYear = (date, number, format = defaultFormat) => dayjs(date).week
  * @param {*} strict
  * @return {*}
  */
-const getDiff = (date1, date2, unit = 'd', strict = false) => dayjs(date1).diff(date2, unit, strict)
+const getDiff = (date1, date2, unit = "d", strict = false) =>
+  dayjs(date1).diff(date2, unit, strict);
 
 /**
  * @description: 获取date所在月份的总天数
  * @param {*} date
  * @return {*}
  */
-const getDaysInMonth = date => dayjs(date).daysInMonth()
+const getDaysInMonth = (date) => dayjs(date).daysInMonth();
 
 /**
  * @description: 获取date所在的自然时间范围，默认为w
  * @param {*} date
  * @return {*}
  */
-const getNaturalRange = (date, unit = 'w', format = defaultFormat) => [dayjs(date).startOf(unit).format(format), dayjs().endOf(unit).format(format)]
+const getNaturalRange = (date, unit = "w", format = defaultFormat) => [
+  dayjs(date).startOf(unit).format(format),
+  dayjs().endOf(unit).format(format),
+];
 
 /**
  * @description: 获取date指定diff的日期格式化，默认为d
@@ -91,9 +99,14 @@ const getNaturalRange = (date, unit = 'w', format = defaultFormat) => [dayjs(dat
  * @param {*} format
  * @return {*}
  */
-const getDateByDiff = (date, diff, unit = 'd', format = defaultFormat) => diff > 0 ? dayjs(date).add(diff, unit).format(format) : dayjs(date).subtract(0 - diff, unit).format(format)
+const getDateByDiff = (date, diff, unit = "d", format = defaultFormat) =>
+  diff > 0
+    ? dayjs(date).add(diff, unit).format(format)
+    : dayjs(date)
+        .subtract(0 - diff, unit)
+        .format(format);
 
-/** 
+/**
  * @description: 判断date在不在range范围内，默认为d，闭区间
  * @param {*} date
  * @param {*} range
@@ -101,26 +114,27 @@ const getDateByDiff = (date, diff, unit = 'd', format = defaultFormat) => diff >
  * @param {*} boundary
  * @return {*}
  */
-const isInRange = (date, range, unit = 'd', boundary = '[]') => dayjs(date).isBetween(dayjs(range[0]), dayjs(range[1]), unit, boundary)
+const isInRange = (date, range, unit = "d", boundary = "[]") =>
+  dayjs(date).isBetween(dayjs(range[0]), dayjs(range[1]), unit, boundary);
 
 /**
  * @description: 判断date所在年份是否是闰年
  * @param {*} date
  * @return {*}
  */
-const isLeapYear = date => dayjs(date).isLeapYear()
+const isLeapYear = (date) => dayjs(date).isLeapYear();
 
 export {
-    getRelativeByTo,
-    getRelativeByFrom,
-    getDayOfYear,
-    setDayOfYear,
-    getWeekOfYear,
-    setWeekOfYear,
-    getDiff,
-    getDaysInMonth,
-    getNaturalRange,
-    getDateByDiff,
-    isInRange,
-    isLeapYear
-}
+  getRelativeByTo,
+  getRelativeByFrom,
+  getDayOfYear,
+  setDayOfYear,
+  getWeekOfYear,
+  setWeekOfYear,
+  getDiff,
+  getDaysInMonth,
+  getNaturalRange,
+  getDateByDiff,
+  isInRange,
+  isLeapYear,
+};

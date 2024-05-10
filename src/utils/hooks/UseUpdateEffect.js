@@ -3,9 +3,8 @@
  * @author: dongyang(yang.dong@derbysoft.net)
  */
 
-
-import { useEffect } from 'react';
-import useFirstMount from './UseFirstMount';
+import { useEffect } from "react";
+import useFirstMount from "./UseFirstMount";
 
 /**
  * 非首次渲染的useEffect
@@ -13,13 +12,13 @@ import useFirstMount from './UseFirstMount';
  * @param deps
  */
 const useUpdateEffect = (effect, deps) => {
-    const isFirstMount = useFirstMount();
+  const isFirstMount = useFirstMount();
 
-    useEffect(() => {
-        if (!isFirstMount) {
-            return effect();
-        }
-    }, deps);
+  useEffect(() => {
+    if (!isFirstMount) {
+      return effect();
+    }
+  }, deps);
 };
 
 export default useUpdateEffect;

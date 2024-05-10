@@ -1,5 +1,3 @@
-import ValueType from './valueType';
+import ValueType from "./valueType";
 
-export {
-    ValueType
-}
+export { ValueType };

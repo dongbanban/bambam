@@ -24,9 +24,9 @@
 @kaleidoscope_shisui_width: 56px * @times;
 @kaleidoscope_shisui_height: 56px * @times;
 
-@tail_width: (@magatama_width/2) - 2px;
+@tail_width: (@magatama_width / 2) - 2px;
 @tail_height: @magatama_height - 2px;
-@kaleidoscope_itachi_tail_width: (@kaleidoscope_itachi_width/2) + 10;
+@kaleidoscope_itachi_tail_width: (@kaleidoscope_itachi_width / 2) + 10;
 @kaleidoscope_itachi_tail_height: @kaleidoscope_itachi_height;
 @kaleidoscope_shisui_tail_width: @kaleidoscope_itachi_tail_width + 2;
 @kaleidoscope_shisui_tail_height: @kaleidoscope_shisui_height - 16;
@@ -41,311 +41,313 @@
 @kaleidoscope_eternal_height: (@eye_width + 12) * 0.8;
 
 @keyframes whirl {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .sharingan {
-    &-eyelids {
-        position: relative;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: @eyelids_width;
-        height: @eyelids_height;
-        clip-path: ellipse(closest-side farthest-side);
-        // background: white;
-        // &::after {
-        //     content: "";
-        //     position: absolute;
-        //     top: 0;
-        //     left: 0;
-        //     width: 100%;
-        //     height: 100%;
-        //     border-radius: 50%;
-        //     border: 2px solid black;
-        //     box-sizing: border-box;
-        //     clip-path: ellipse(closest-side farthest-side);
-        // }
+  &-eyelids {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: @eyelids_width;
+    height: @eyelids_height;
+    clip-path: ellipse(closest-side farthest-side);
+    // background: white;
+    // &::after {
+    //     content: "";
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     border-radius: 50%;
+    //     border: 2px solid black;
+    //     box-sizing: border-box;
+    //     clip-path: ellipse(closest-side farthest-side);
+    // }
+  }
+
+  &-eye {
+    box-sizing: content-box;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: @eye_width;
+    height: @eye_height;
+    background: @eye_color;
+    border: @eye_border solid black;
+    border-radius: 50%;
+    transition: transform 0.3s ease-out;
+    pointer-events: none;
+  }
+
+  &-whirl {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    animation-name: whirl;
+    animation-play-state: running;
+    animation-iteration-count: 1;
+  }
+
+  &-pupil {
+    width: @pupil_width;
+    height: @pupil_height;
+    border-radius: 50%;
+    background: black;
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    margin-top: 0 - (@pupil_width / 2);
+    margin-left: 0 - (@pupil_height / 2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    &.eternal {
+      background: @eye_color;
+      width: @pupil_eternal_width;
+      height: @pupil_eternal_height;
+      box-shadow: 0 0 10px @eye_color;
+      position: absolute;
+      margin-top: 0 - (@pupil_eternal_width / 2);
+      margin-left: 0 - (@pupil_eternal_height / 2);
     }
 
-    &-eye {
-        box-sizing: content-box;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        width: @eye_width;
-        height: @eye_height;
-        background: @eye_color;
-        border: @eye_border solid black;
-        border-radius: 50%;
-        transition: transform 0.3s ease-out;
-        pointer-events: none;
+    &.itachi {
+      background: @eye_color;
+      width: @pupil_itachi_width;
+      height: @pupil_itachi_height;
+      box-shadow: 0 0 10px @eye_color;
+      position: absolute;
+      margin-top: 0 - (@pupil_itachi_width / 2);
+      margin-left: 0 - (@pupil_itachi_height / 2);
     }
 
-    &-whirl {
-        animation-duration: 1s;
-        animation-fill-mode: both;
-        animation-timing-function: ease-in-out;
-        animation-name: whirl;
-        animation-play-state: running;
-        animation-iteration-count: 1;
+    &.shisui {
+      box-sizing: content-box;
+      background: black;
+      width: @pupil_shisui_width;
+      height: @pupil_shisui_height;
+      box-shadow: 0 0 10px @eye_color;
+      position: absolute;
+      margin-top: 0 - 14- (@pupil_shisui_width / 2);
+      margin-left: 0 - 14-(@pupil_shisui_height / 2);
+      border: 14px solid @eye_color;
+    }
+  }
+
+  &-circle-line {
+    width: @distance*2 + 2;
+    height: @distance*2 + 2;
+    border: 3px solid black;
+    border-radius: 50%;
+  }
+
+  &-magatama {
+    position: relative;
+    width: @magatama_width;
+    height: @magatama_height;
+    border-radius: @magatama_width;
+    background-color: black;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: (@magatama_width / 2);
+      left: 0px;
+      width: @tail_width;
+      height: @tail_height;
+      border-color: black;
+      border-style: solid;
+      border-radius: 0 0 0 100%;
+
+      & when(@tail_width - 2 <=5) {
+        border-width: 0 0 0 5px;
+      }
+
+      & when(@tail_width - 2 > 5) {
+        border-width: 0 0 0 @tail_width - 2;
+      }
     }
 
-    &-pupil {
-        width: @pupil_width;
-        height: @pupil_height;
-        border-radius: 50%;
-        background: black;
+    &-top {
+      transform: rotate(60deg) rotateX(180deg);
+      position: absolute;
+      top: (@eye_width / 2) - (@distance) - (@magatama_height / 2);
+    }
+
+    &-left {
+      transform: rotate(-60deg) rotateX(180deg);
+      position: absolute;
+      top: (@eye_width / 2) + (@distance) * sin(30deg) - (@magatama_width / 2);
+      left: (@eye_width / 2) - (@distance) * sin(30deg) * sqrt(3) -
+        (@magatama_width / 2);
+    }
+
+    &-right {
+      transform: rotateY(180deg);
+      position: absolute;
+      top: (@eye_width / 2) + (@distance) * sin(30deg) - (@magatama_width / 2);
+      right: (@eye_width / 2) - (@distance) * sin(30deg) * sqrt(3) -
+        (@magatama_width / 2);
+    }
+  }
+
+  &-kaleidoscope {
+    display: inline-flex;
+    width: @kaleidoscope_width;
+    height: @kaleidoscope_height;
+    position: absolute;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid black;
+      box-sizing: border-box;
+      background: @eye_color;
+    }
+
+    &-fill1 {
+      width: @kaleidoscope_width;
+      height: @kaleidoscope_height;
+      position: absolute;
+      z-index: 10;
+      transform: rotate(-55deg);
+
+      &::after {
+        content: "";
         position: absolute;
-        z-index: 100;
-        top: 50%;
-        left: 50%;
-        margin-top: 0 - (@pupil_width/2);
-        margin-left: 0 - (@pupil_height/2);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
-        &.eternal {
-            background: @eye_color;
-            width: @pupil_eternal_width;
-            height: @pupil_eternal_height;
-            box-shadow: 0 0 10px @eye_color;
-            position: absolute;
-            margin-top: 0 - (@pupil_eternal_width/2);
-            margin-left: 0 - (@pupil_eternal_height/2);
-        }
-
-        &.itachi {
-            background: @eye_color;
-            width: @pupil_itachi_width;
-            height: @pupil_itachi_height;
-            box-shadow: 0 0 10px @eye_color;
-            position: absolute;
-            margin-top: 0 - (@pupil_itachi_width/2);
-            margin-left: 0 - (@pupil_itachi_height/2);
-        }
-
-        &.shisui {
-            box-sizing: content-box;
-            background: black;
-            width: @pupil_shisui_width;
-            height: @pupil_shisui_height;
-            box-shadow: 0 0 10px @eye_color;
-            position: absolute;
-            margin-top: 0 - 14- (@pupil_shisui_width/2);
-            margin-left: 0 - 14-(@pupil_shisui_height/2);
-            border: 14px solid @eye_color;
-        }
-    }
-
-    &-circle-line {
-        width: @distance*2 + 2;
-        height: @distance*2 + 2;
-        border: 3px solid black;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         border-radius: 50%;
+        border: 2px solid black;
+        box-sizing: border-box;
+      }
     }
 
-    &-magatama {
-        position: relative;
-        width: @magatama_width;
-        height: @magatama_height;
-        border-radius: @magatama_width;
-        background-color: black;
+    &-fill2 {
+      width: @kaleidoscope_width;
+      height: @kaleidoscope_height;
+      position: absolute;
+      z-index: 10;
 
-        &::before {
-            content: "";
-            position: absolute;
-            top: (@magatama_width/2);
-            left: 0px;
-            width: @tail_width;
-            height: @tail_height;
-            border-color: black;
-            border-style: solid;
-            border-radius: 0 0 0 100%;
-
-            & when(@tail_width - 2 <=5) {
-                border-width: 0 0 0 5px;
-            }
-
-            & when(@tail_width - 2 > 5) {
-                border-width: 0 0 0 @tail_width - 2;
-            }
-        }
-
-        &-top {
-            transform: rotate(60deg) rotateX(180deg);
-            position: absolute;
-            top: (@eye_width/2) - (@distance) - (@magatama_height/2);
-        }
-
-        &-left {
-            transform: rotate(-60deg) rotateX(180deg);
-            position: absolute;
-            top: (@eye_width/2) + (@distance)*sin(30deg) - (@magatama_width/2);
-            left: (@eye_width/2) - (@distance)*sin(30deg)*sqrt(3) - (@magatama_width/2)
-        }
-
-        &-right {
-            transform: rotateY(180deg);
-            position: absolute;
-            top: (@eye_width/2) + (@distance)*sin(30deg) - (@magatama_width/2);
-            right: (@eye_width/2) - (@distance)*sin(30deg)*sqrt(3) - (@magatama_width/2)
-        }
-    }
-
-    &-kaleidoscope {
-        display: inline-flex;
-        width: @kaleidoscope_width;
-        height: @kaleidoscope_height;
+      &::after {
+        content: "";
         position: absolute;
-
-        &::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 2px solid black;
-            box-sizing: border-box;
-            background: @eye_color;
-        }
-
-        &-fill1 {
-            width: @kaleidoscope_width;
-            height: @kaleidoscope_height;
-            position: absolute;
-            z-index: 10;
-            transform: rotate(-55deg);
-
-            &::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                border: 2px solid black;
-                box-sizing: border-box;
-            }
-        }
-
-        &-fill2 {
-            width: @kaleidoscope_width;
-            height: @kaleidoscope_height;
-            position: absolute;
-            z-index: 10;
-
-            &::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                border: 2px solid black;
-                box-sizing: border-box;
-            }
-        }
-
-        &-eternal {
-            display: inline-flex;
-            width: @kaleidoscope_eternal_width;
-            height: @kaleidoscope_eternal_height;
-            position: absolute;
-            z-index: 10;
-            background: black;
-            border-radius: 50%;
-            clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
-
-            // &::after {
-            //     content: "";
-            //     position: absolute;
-            //     top: 0;
-            //     left: 0;
-            //     width: 100%;
-            //     height: 100%;
-            //     border-radius: 50%;
-            //     box-sizing: border-box;
-            //     border: 2px solid black;
-            // }
-        }
-
-        &-itachi {
-            position: absolute;
-            width: @kaleidoscope_itachi_width;
-            height: @kaleidoscope_itachi_height;
-            border-radius: @kaleidoscope_itachi_width;
-            background-color: black;
-
-            &::before {
-                content: "";
-                position: absolute;
-                top: (@kaleidoscope_itachi_width/2);
-                width: @kaleidoscope_itachi_tail_width;
-                height: @kaleidoscope_itachi_height;
-                border-color: black;
-                border-style: solid;
-                border-radius: 0 0 0 100%;
-                border-width: 0 0 0 @kaleidoscope_itachi_tail_width+5;
-            }
-
-            &-top {
-                transform: rotate(140deg) translate(0, 0) rotateY(180deg);
-            }
-
-            &-left {
-                transform: rotate(20deg) translate(0, 0) rotateY(180deg);
-            }
-
-            &-right {
-                transform: rotate(-100deg) translate(0, 0) rotateY(180deg);
-            }
-        }
-
-        &-shisui {
-            position: absolute;
-            width: @kaleidoscope_shisui_width;
-            height: @kaleidoscope_shisui_height;
-            border-radius: @kaleidoscope_shisui_width;
-            background-color: black;
-
-            &::before {
-                content: "";
-                position: absolute;
-                top: (@kaleidoscope_shisui_width/2);
-                width: @kaleidoscope_shisui_tail_width;
-                height: @kaleidoscope_shisui_tail_height;
-                border-color: black;
-                border-style: solid;
-                border-radius: 0 0 0 100%;
-                border-width: 0 0 0 @kaleidoscope_shisui_tail_width - 2;
-            }
-
-            &-top {
-                transform: rotate(180deg) translate(0, 0) rotateY(180deg);
-            }
-
-            &-bottom {
-                transform: rotate(0deg) translate(0, 0) rotateY(180deg);
-            }
-
-            &-left {
-                transform: rotate(90deg) translate(0, 0) rotateY(180deg);
-            }
-
-            &-right {
-                transform: rotate(-90deg) translate(0, 0) rotateY(180deg);
-            }
-        }
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 2px solid black;
+        box-sizing: border-box;
+      }
     }
+
+    &-eternal {
+      display: inline-flex;
+      width: @kaleidoscope_eternal_width;
+      height: @kaleidoscope_eternal_height;
+      position: absolute;
+      z-index: 10;
+      background: black;
+      border-radius: 50%;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+
+      // &::after {
+      //     content: "";
+      //     position: absolute;
+      //     top: 0;
+      //     left: 0;
+      //     width: 100%;
+      //     height: 100%;
+      //     border-radius: 50%;
+      //     box-sizing: border-box;
+      //     border: 2px solid black;
+      // }
+    }
+
+    &-itachi {
+      position: absolute;
+      width: @kaleidoscope_itachi_width;
+      height: @kaleidoscope_itachi_height;
+      border-radius: @kaleidoscope_itachi_width;
+      background-color: black;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: (@kaleidoscope_itachi_width / 2);
+        width: @kaleidoscope_itachi_tail_width;
+        height: @kaleidoscope_itachi_height;
+        border-color: black;
+        border-style: solid;
+        border-radius: 0 0 0 100%;
+        border-width: 0 0 0 @kaleidoscope_itachi_tail_width+5;
+      }
+
+      &-top {
+        transform: rotate(140deg) translate(0, 0) rotateY(180deg);
+      }
+
+      &-left {
+        transform: rotate(20deg) translate(0, 0) rotateY(180deg);
+      }
+
+      &-right {
+        transform: rotate(-100deg) translate(0, 0) rotateY(180deg);
+      }
+    }
+
+    &-shisui {
+      position: absolute;
+      width: @kaleidoscope_shisui_width;
+      height: @kaleidoscope_shisui_height;
+      border-radius: @kaleidoscope_shisui_width;
+      background-color: black;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: (@kaleidoscope_shisui_width / 2);
+        width: @kaleidoscope_shisui_tail_width;
+        height: @kaleidoscope_shisui_tail_height;
+        border-color: black;
+        border-style: solid;
+        border-radius: 0 0 0 100%;
+        border-width: 0 0 0 @kaleidoscope_shisui_tail_width - 2;
+      }
+
+      &-top {
+        transform: rotate(180deg) translate(0, 0) rotateY(180deg);
+      }
+
+      &-bottom {
+        transform: rotate(0deg) translate(0, 0) rotateY(180deg);
+      }
+
+      &-left {
+        transform: rotate(90deg) translate(0, 0) rotateY(180deg);
+      }
+
+      &-right {
+        transform: rotate(-90deg) translate(0, 0) rotateY(180deg);
+      }
+    }
+  }
 }

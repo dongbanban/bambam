@@ -3,8 +3,7 @@
  * @author: dongyang(yang.dong@derbysoft.net)
  */
 
-
-import { useCallback, useState } from 'react';
+import { useCallback, useState } from "react";
 
 /**
  * 布尔值切换的useState
@@ -12,11 +11,11 @@ import { useCallback, useState } from 'react';
  * @returns {[]}
  */
 const useToggleState = (defaultValue = false) => {
-    const [state, setState] = useState(defaultValue)
+  const [state, setState] = useState(defaultValue);
 
-    const toggle = useCallback(() => setState(c => !c), [])
+  const toggle = useCallback(() => setState((c) => !c), []);
 
-    return [state, toggle]
+  return [state, toggle];
 };
 
-export default useToggleState
+export default useToggleState;
