@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/bambam/src/layout/index.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import { useEffect } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import { useLocationListen } from "utils/hooks";

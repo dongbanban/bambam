@@ -1,7 +1,3 @@
-/*
- * @FilePath: /click/Users/i104/vite3/src/stores/zustand/store.js
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import { create } from "zustand";
 
 const useDemoStore = create((set, get) => ({

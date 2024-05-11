@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/bambam/src/config/config.menu.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import React from "react";
 import { AppstoreOutlined } from "@ant-design/icons";
 

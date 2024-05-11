@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/vite3/src/enum/variableType.js
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 export default {
   NUMBER: "[object Number]",
   STRING: "[object String]",

@@ -1,8 +1,3 @@
-/*
- * @FilePath: /click/Users/i104/vite3/src/utils/requestQueue.js
- * @author: dongyang(yang.dong@derbysoft.net)
- */
-
 import axios from "axios";
 
 const maxAxiosCount = 1;

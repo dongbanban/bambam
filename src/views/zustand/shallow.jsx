@@ -1,8 +1,3 @@
-/*
- * @FilePath: /click/Users/i104/vite3/src/views/zustand/shallow.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
-
 import React from "react";
 
 // store

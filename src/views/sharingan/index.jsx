@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/bambam/src/views/sharingan/index.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import React from "react";
 import { Space } from "antd";
 import SharinganEyelids from "./item/eyelids";

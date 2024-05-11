@@ -1,7 +1,3 @@
-/*
- * @FilePath: /click/Users/i104/vite3/src/routes/error.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import { useRouteError } from "react-router-dom";
 import "./error.less";
 

@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/bambam/src/views/cssDemo/grid.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import React from "react";
 
 import "./grid.less";

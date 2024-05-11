@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/bambam/src/views/cssDemo/lightCard.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import React, { useRef, useState, useEffect } from "react";
 
 import "./lightCard.less";

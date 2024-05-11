@@ -1,7 +1,3 @@
-/*
- * @FilePath: /click/Users/i104/vite3/src/views/memoTest.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import React, { useState, memo } from "react";
 
 const Child1 = (props) => {

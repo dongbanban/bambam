@@ -1,8 +1,3 @@
-/*
- * @FilePath: /Users/i104/bambam/src/components/CustomTextArea.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
-
 import React, {
   useEffect,
   useCallback,

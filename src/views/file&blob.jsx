@@ -1,8 +1,3 @@
-/*
- * @FilePath: /Users/i104/vite3/src/views/file&blob.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
-
 import React, { useCallback, useState } from "react";
 import { fileConvert } from "utils/file";
 

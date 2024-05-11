@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/vite3/src/views/cssDemo/backdropFilter.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import React, { useMemo, useState } from "react";
 import { InputNumber, Space } from "antd";
 

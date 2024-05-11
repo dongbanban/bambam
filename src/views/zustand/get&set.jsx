@@ -1,8 +1,3 @@
-/*
- * @FilePath: /click/Users/i104/vite3/src/views/zustand/get&set.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
-
 import React, { useEffect } from "react";
 import { Button, Space } from "antd";
 

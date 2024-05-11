@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/vite3/src/utils/day/plugin.js
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import relativeTime from "dayjs/plugin/relativeTime";

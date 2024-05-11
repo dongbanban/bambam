@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/bambam/src/routes/config.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import { lazy } from "react";
 import ac from "./AsyncComponent";
 import ErrorRoute from "./errorRoute";

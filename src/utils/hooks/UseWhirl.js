@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/bambam/src/utils/hooks/UseWhirl.js
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import React, { useEffect } from "react";
 import { registerEvent, removeEvent } from "../CustomEvent";
 

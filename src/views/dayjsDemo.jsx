@@ -1,8 +1,3 @@
-/*
- * @FilePath: /Users/i104/vite3/src/views/dayjsDemo.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
-
 import React from "react";
 import { Space } from "antd";
 import {

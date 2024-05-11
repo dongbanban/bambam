@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/bambam/src/layout/menu.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu } from "antd";

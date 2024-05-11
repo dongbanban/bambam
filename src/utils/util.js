@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/bambam/src/utils/util.js
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import { ValueType } from "enum";
 
 const getValueType = (value) => Object.prototype.toString.call(value);

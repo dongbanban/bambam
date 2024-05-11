@@ -1,8 +1,3 @@
-/*
- * @FilePath: /Users/i104/bambam/src/utils/CustomEvent.js
- * @author: dongyang(yang.dong@derbysoft.net)
- */
-
 function add(ele, eventType, fn, isCaptureCatch = false) {
   // 添加事件监听
   if (ele.addEventListener) {

@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/vite3/src/utils/day/index.js
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import dayjs from "dayjs"; // 引入dayjs插件
 import "dayjs/locale/zh-cn"; // 引入中文语言包   默认英文语言包
 import "./plugin";

@@ -1,7 +1,3 @@
-/*
- * @FilePath: /Users/i104/bambam/src/views/menuDemo.jsx
- * @author: dongyang(yang.dong@derbysoft.net)
- */
 import React, { useMemo, useState, useEffect, useCallback } from "react";
 import { Flex } from "antd";
 import "./menuDemo.less";
