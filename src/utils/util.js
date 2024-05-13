@@ -1,3 +1,7 @@
+/*
+ * @FilePath: /Users/i104/bambam/src/utils/util.js
+ * @author: dongyang
+ */
 import { ValueType } from "enum";
 
 const getValueType = (value) => Object.prototype.toString.call(value);
@@ -20,6 +24,17 @@ const getUuid = () => {
   }
   return uuid;
 };
+const formatSizeUnits = (size) => {
+  const units = ["B", "KB", "MB", "GB", "TB", "PB"];
+  let unitIndex = 0;
+
+  while (size >= 1024 && unitIndex < units.length - 1) {
+    size /= 1024;
+    unitIndex++;
+  }
+
+  return !!size ? `${size.toFixed(2)} ${units[unitIndex]}` : "0 B";
+};
 
 export {
   getValueType,
@@ -30,4 +45,5 @@ export {
   isBlank,
   isFalseValue,
   getUuid,
+  formatSizeUnits,
 };
