@@ -1,0 +1,68 @@
+.radialGradient {
+  width: 200px;
+  height: 150px;
+  margin: 20px;
+  background: url("../../assets/img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  mask: radial-gradient(
+        circle at left top,
+        transparent 0,
+        transparent 20px,
+        red 20px
+      )
+      left top,
+    radial-gradient(
+        circle at right top,
+        transparent 0,
+        transparent 20px,
+        red 20px
+      )
+      right top,
+    radial-gradient(
+        circle at left bottom,
+        transparent 0,
+        transparent 20px,
+        red 20px
+      )
+      left bottom,
+    radial-gradient(
+        circle at right bottom,
+        transparent 0,
+        transparent 20px,
+        red 20px
+      )
+      right bottom;
+  -webkit-mask: radial-gradient(
+        circle at left top,
+        transparent 0,
+        transparent 20px,
+        red 20px
+      )
+      left top,
+    radial-gradient(
+        circle at right top,
+        transparent 0,
+        transparent 20px,
+        red 20px
+      )
+      right top,
+    radial-gradient(
+        circle at left bottom,
+        transparent 0,
+        transparent 20px,
+        red 20px
+      )
+      left bottom,
+    radial-gradient(
+        circle at right bottom,
+        transparent 0,
+        transparent 20px,
+        red 20px
+      )
+      right bottom;
+  mask-size: 50% 50%;
+  -webkit-mask-size: 50% 50%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+}
