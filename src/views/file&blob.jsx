@@ -1,7 +1,8 @@
-/*
- * @FilePath: /src/views/file&blob.jsx
+/**
+ * @file: /src/views/file&blob.jsx
  * @author: dongyang
  */
+
 import React, { useCallback, useState } from "react";
 import { fileConvert } from "utils/file";
 
@@ -22,8 +23,8 @@ const FileAndBlob = () => {
     });
   }, []);
 
-  const blobUrl = URL.createObjectURL(res.data); // responseType: 'blob'
-  const base64Url = Buffer.from(res.data, "binary").toString("base64"); // responseType: 'arraybuffer'
+  // const blobUrl = URL.createObjectURL(res.data); // responseType: 'blob'
+  // const base64Url = Buffer.from(res.data, "binary").toString("base64"); // responseType: 'arraybuffer'
 
   return (
     <>
