@@ -1,0 +1,17 @@
+@keyframes rotate {
+  0% {
+    transform: rotate3d(0.5, 0, 0, 45deg) rotate(0deg);
+  }
+  100% {
+    transform: rotate3d(0.5, 0, 0, 45deg) rotate(1turn);
+  }
+}
+.rotate {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  transform: rotate3d(0.5, 0, 0, 45deg);
+  border-radius: 50%;
+  background-image: url("../../assets/img.jpg");
+  animation: rotate 15s infinite linear;
+}

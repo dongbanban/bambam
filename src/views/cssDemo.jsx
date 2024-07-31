@@ -1,5 +1,5 @@
-/*
- * @FilePath: /src/views/cssDemo.jsx
+/**
+ * @file: /src/views/cssDemo.jsx
  * @author: dongyang
  */
 import React from "react";
@@ -10,6 +10,7 @@ import CubicBezier from "./cssDemo/cubicBezier";
 import ConicGradient from "./cssDemo/conicGradient";
 import Coupon from "./cssDemo/coupon";
 import RadialGradient from "./cssDemo/radialGradient";
+import Rotate from "./cssDemo/rotate";
 
 const CssDemo = () => {
   return (
@@ -21,6 +22,7 @@ const CssDemo = () => {
       <ConicGradient />
       <Coupon />
       <RadialGradient />
+      <Rotate />
     </div>
   );
 };
