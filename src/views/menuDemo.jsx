@@ -1,5 +1,10 @@
+/**
+ * @file: /src/views/menuDemo.jsx
+ * @author: dongyang
+ */
 import React, { useMemo, useState, useEffect, useCallback } from "react";
 import { Flex } from "antd";
+import { useLocalStorageListener } from "utils/hooks";
 import "./menuDemo.less";
 
 function MenuTest() {
@@ -38,6 +43,10 @@ function MenuTest() {
     const timer = setTimeout(() => getNextCurrent(), 100);
     return () => clearTimeout(timer);
   }, [current, total, getNextCurrent]);
+
+  useLocalStorageListener("test", (value) => {
+    console.log("test", value);
+  });
 
   return (
     <>

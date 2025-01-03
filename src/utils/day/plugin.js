@@ -1,3 +1,7 @@
+/**
+ * @file: /src/utils/day/plugin.js
+ * @author: dongyang
+ */
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import relativeTime from "dayjs/plugin/relativeTime";
